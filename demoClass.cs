@@ -16,7 +16,7 @@ namespace tests
         }
 
         [Test]
-        public void Test()
+        public void SelectAvalueFromAdropdown()
         {
             driver.Url = "http://demo.guru99.com/test/guru99home/";
             driver.Manage().Window.Maximize();
@@ -26,6 +26,22 @@ namespace tests
             var selectTest = new OpenQA.Selenium.Support.UI.SelectElement(course);
             // Select a value from the dropdown				
             selectTest.SelectByValue("sap-abap");
+
+        }
+
+        [Test]
+        public void EnterDataInAtextBox()
+        {
+            driver.Url = "http://demo.guru99.com/test/guru99home/";
+            driver.Manage().Window.Maximize();
+
+            // Store locator values of email text box and sign up button				
+            IWebElement emailTextBox = driver.FindElement(By.Id("philadelphia-field-email"));
+            IWebElement signUpButton = driver.FindElement(By.Id("philadelphia-field-submit"));
+
+            emailTextBox.SendKeys("test123@gmail.com");
+            signUpButton.Click();
+
 
         }
 
